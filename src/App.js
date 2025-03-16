@@ -1,3 +1,4 @@
+import useAxios from "./hooks/useAxios";
 import useClick from "./hooks/useClick";
 import useConfirm from "./hooks/useConfirm";
 import useFadeIn from "./hooks/useFadeIn";
@@ -51,6 +52,12 @@ function App() {
   const triggerNotif = useNotification("Hello, this is an alert title", {
     body: "This is alert content",
   });
+
+  // useAxios
+  const { loading, data, error } = useAxios(
+    { url: "https://yts.mx/api/v2/list_movies.json" }
+  );
+  console.log(`Loading: ${loading}\nError: ${error}\nData: ${JSON.stringify(data)}`)
 
   return (
     <>
