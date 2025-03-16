@@ -1,0 +1,15 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from "react";
+
+const useTabs = (initialTab, allTabs) => {
+    if (!allTabs || !Array.isArray(allTabs)) {
+        return;
+    }
+    const [currentIndex, setCurrentIndex] = useState(initialTab);
+    return {
+        currentItem: allTabs[currentIndex],
+        changeItem: setCurrentIndex
+    }
+}
+
+export { useTabs };
