@@ -6,6 +6,12 @@ export const useClick = (onClick) => {
         if (element.current) {
             element.current.addEventListener("click", onClick);
         }
-    })
-    return element;
+        return () => {
+            if (element.current) {
+                element.current.removeEventListener("click", onClick);
+            }
+        }
+    }, [])
+
+    return typeof onClick === "function" ? element : undefined;
 }
