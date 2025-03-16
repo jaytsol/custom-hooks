@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export const useClick = (onClick) => {
+const useClick = (onClick) => {
     const element = useRef();
     useEffect(() => {
         if (element.current) {
@@ -15,3 +15,5 @@ export const useClick = (onClick) => {
 
     return typeof onClick === "function" ? element : undefined;
 }
+
+export { useClick };
