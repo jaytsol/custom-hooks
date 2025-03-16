@@ -3,9 +3,12 @@ import { useEffect } from "react"
 const useBeforeLeave = (onBefore) => {
     if (typeof onBefore !== "function") {
         return;
-    }
-    const handle = () => {
-        console.log('leaving');
+     }
+    const handle = (event) => {
+        const { clientY } = event;
+        if (clientY <= 0) {
+            onBefore();
+        }
     }
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
