@@ -1,5 +1,6 @@
 import { useClick } from "./hooks/useClick";
 import { useConfirm } from "./hooks/useConfirm";
+import { useFadeIn } from "./hooks/useFadeIn";
 import { useBeforeLeave } from "./hooks/usePageLeave";
 import { usePreventLeave } from "./hooks/usePreventLeave";
 import { useTitle } from "./hooks/useTitle";
@@ -14,6 +15,8 @@ function App() {
   const { enablePrevent, disablePrevent } = usePreventLeave();
   const begForLifr = () => console.log('Pls dont leave');
   useBeforeLeave(begForLifr);
+  const fadeInHi = useFadeIn({duration: 2, delay: 3});
+  const fadeInBye = useFadeIn({duration: 3, delay: 5});
   return (
     <>
       <div>
@@ -32,6 +35,12 @@ function App() {
       <div>
         <button onClick={enablePrevent}>Protect</button>
         <button onClick={disablePrevent}>Unprotect</button>
+      </div>
+      <div {...fadeInHi}>
+        hi
+      </div>
+      <div {...fadeInBye}>
+        bye
       </div>
     </>
   );
