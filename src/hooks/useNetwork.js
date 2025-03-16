@@ -21,4 +21,4 @@ const useNetwork = (onChange) => {
     return status;
 }
 
-export { useNetwork };
+export default useNetwork;

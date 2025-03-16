@@ -12,4 +12,4 @@ const useTabs = (initialTab, allTabs) => {
     }
 }
 
-export { useTabs };
+export default useTabs;

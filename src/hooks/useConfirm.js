@@ -16,4 +16,4 @@ const useConfirm = (message = "", onConfirm, onCancel) => {
     return confirmAction;
 }
 
-export { useConfirm };
+export default useConfirm;

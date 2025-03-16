@@ -9,4 +9,4 @@ const usePreventLeave = () => {
     return { enablePrevent, disablePrevent };
 }
 
-export { usePreventLeave };
+export default usePreventLeave;

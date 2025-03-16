@@ -13,4 +13,4 @@ const useFullScreen = () => {
     return { element, triggerFull, exitFull };
 }
 
-export { useFullScreen };
+export default useFullScreen;

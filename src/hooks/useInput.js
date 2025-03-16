@@ -17,4 +17,4 @@ const useInput = (initialValue, validator) => {
     return { value, onChange };
 }
 
-export { useInput };
+export default useInput;

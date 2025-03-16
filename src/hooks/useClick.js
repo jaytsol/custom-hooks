@@ -16,4 +16,4 @@ const useClick = (onClick) => {
     return typeof onClick === "function" ? element : undefined;
 }
 
-export { useClick };
+export default useClick;

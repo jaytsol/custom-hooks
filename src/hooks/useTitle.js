@@ -10,4 +10,4 @@ const useTitle = (initialTitle) => {
     return setTitle;
 }
 
-export { useTitle };
+export default useTitle;

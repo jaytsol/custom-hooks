@@ -15,4 +15,4 @@ const useScroll = () => {
     return state;
 }
 
-export { useScroll };
+export default useScroll;

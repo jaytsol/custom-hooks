@@ -18,4 +18,4 @@ const useNotification = (title, options) => {
     return fireNotif;   
 }
 
-export { useNotification };
+export default useNotification;

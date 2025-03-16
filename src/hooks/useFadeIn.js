@@ -16,4 +16,4 @@ const useFadeIn = ({duration = 1, delay = 0}) => {
     return {ref: element, style: {opacity: 0}};
 }
 
-export { useFadeIn };
+export default useFadeIn;
