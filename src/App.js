@@ -1,16 +1,16 @@
-import useAxios from "./hooks/useAxios";
-import useClick from "./hooks/useClick";
-import useConfirm from "./hooks/useConfirm";
-import useFadeIn from "./hooks/useFadeIn";
-import useFullScreen from "./hooks/useFullScreen";
-import useInput from "./hooks/useInput";
-import useNetwork from "./hooks/useNetwork";
-import useNotification from "./hooks/useNotification";
-import usePageLeave from "./hooks/usePageLeave";
-import usePreventLeave from "./hooks/usePreventLeave";
-import useScroll from "./hooks/useScroll";
-import useTabs from "./hooks/useTabs";
-import useTitle from "./hooks/useTitle";
+import useAxios from "./useAxios";
+import useClick from "./useClick";
+import useConfirm from "./useConfirm";
+import useFadeIn from "./useFadeIn";
+import useFullScreen from "./useFullScreen";
+import useInput from "./useInput";
+import useNetwork from "./useNetwork";
+import useNotification from "./useNotification";
+import usePageLeave from "./usePageLeave";
+import usePreventLeave from "./usePreventLeave";
+import useScroll from "./useScroll";
+import useTabs from "./useTabs";
+import useTitle from "./useTitle";
 
 function App() {
   // useInput
