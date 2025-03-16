@@ -6,10 +6,9 @@ function App() {
   const titleUpdater = useTitle("Loading...");
   setTimeout(() => titleUpdater("Home"), 500);
   const clickedElement = useClick(() => console.log('Clicked'));
-  const deleteWorld = () => {
-    console.log('Deleting the world');
-  };
-  const confirmDelete = useConfirm("Are you sure?", deleteWorld);
+  const deleteWorld = () => console.log('Deleting the world');
+  const abort = () => console.log('Aborted')
+  const confirmDelete = useConfirm("Are you sure?", deleteWorld, abort);
   return (
     <>
       <div>
