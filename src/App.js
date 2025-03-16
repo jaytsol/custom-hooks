@@ -5,6 +5,7 @@ import { useInput } from "./hooks/useInput";
 import { useNetwork } from "./hooks/useNetwork";
 import { useBeforeLeave } from "./hooks/usePageLeave";
 import { usePreventLeave } from "./hooks/usePreventLeave";
+import { useScroll } from "./hooks/useScroll";
 import { useTabs } from "./hooks/useTabs";
 import { useTitle } from "./hooks/useTitle";
 
@@ -37,6 +38,10 @@ function App() {
     console.log(online ? "We just went online" : "We are offline");
   }
   const onLine = useNetwork(handleNetworkChange);
+  
+  // useScroll
+  const {y} = useScroll();
+  
   return (
     <>
       <div>
@@ -73,6 +78,9 @@ function App() {
       </div>
       <div>
         {onLine ? "Online" : "Offline"}
+      </div>
+      <div style={{ height: "1000vh"}}>
+        <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue"}}>Hi</h1>
       </div>
     </>
   );
