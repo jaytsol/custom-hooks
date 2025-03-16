@@ -1,12 +1,15 @@
 import { useClick } from "./hooks/useClick";
 import { useConfirm } from "./hooks/useConfirm";
 import { useFadeIn } from "./hooks/useFadeIn";
+import { useInput } from "./hooks/useInput";
 import { useNetwork } from "./hooks/useNetwork";
 import { useBeforeLeave } from "./hooks/usePageLeave";
 import { usePreventLeave } from "./hooks/usePreventLeave";
 import { useTitle } from "./hooks/useTitle";
 
 function App() {
+  const maxLen = (value) => !value.includes("@");
+  const name = useInput("Mr.", maxLen);
   const titleUpdater = useTitle("Loading...");
   setTimeout(() => titleUpdater("Home"), 500);
   const clickedElement = useClick(() => console.log('Clicked'));
@@ -24,6 +27,9 @@ function App() {
   const onLine = useNetwork(handleNetworkChange);
   return (
     <>
+      <div>
+        <input placeholder="Name" {...name} />
+      </div>
       <div>
         <div>
           Hi
