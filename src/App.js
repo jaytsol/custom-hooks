@@ -4,6 +4,7 @@ import { useFadeIn } from "./hooks/useFadeIn";
 import { useFullScreen } from "./hooks/useFullScreen";
 import { useInput } from "./hooks/useInput";
 import { useNetwork } from "./hooks/useNetwork";
+import { useNotification } from "./hooks/useNotification";
 import { useBeforeLeave } from "./hooks/usePageLeave";
 import { usePreventLeave } from "./hooks/usePreventLeave";
 import { useScroll } from "./hooks/useScroll";
@@ -45,6 +46,11 @@ function App() {
 
   // useFullScreen
   const { element, triggerFull, exitFull } = useFullScreen();
+
+  // useNotification
+  const triggerNotif = useNotification("Hello, this is an alert title", {
+    body: "This is alert content"
+  });
 
   return (
     <>
@@ -90,6 +96,9 @@ function App() {
         <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.thesun.co.uk%2Fwp-content%2Fuploads%2F2022%2F06%2Fsp-jonsnow-op.jpg%3Fstrip%3Dall%26quality%3D100%26w%3D1920%26h%3D1080%26crop%3D1&type=sc960_832" alt="psyduck" />
         <button onClick={triggerFull}>Make fullscreen</button>
         <button onClick={exitFull}>Exit fullscreen</button>
+      </div>
+      <div>
+        <button onClick={triggerNotif}>Notification</button>
       </div>
     </>
   );
