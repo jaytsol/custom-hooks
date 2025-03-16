@@ -1,6 +1,7 @@
 import { useClick } from "./hooks/useClick";
 import { useConfirm } from "./hooks/useConfirm";
 import { useFadeIn } from "./hooks/useFadeIn";
+import { useNetwork } from "./hooks/useNetwork";
 import { useBeforeLeave } from "./hooks/usePageLeave";
 import { usePreventLeave } from "./hooks/usePreventLeave";
 import { useTitle } from "./hooks/useTitle";
@@ -17,6 +18,10 @@ function App() {
   useBeforeLeave(begForLifr);
   const fadeInHi = useFadeIn({duration: 2, delay: 3});
   const fadeInBye = useFadeIn({duration: 3, delay: 5});
+  const handleNetworkChange = (online) => {
+    console.log(online ? "We just went online" : "We are offline");
+  }
+  const onLine = useNetwork(handleNetworkChange);
   return (
     <>
       <div>
@@ -41,6 +46,9 @@ function App() {
       </div>
       <div {...fadeInBye}>
         bye
+      </div>
+      <div>
+        {onLine ? "Online" : "Offline"}
       </div>
     </>
   );
