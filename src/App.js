@@ -13,8 +13,11 @@ import useTabs from "./hooks/useTabs";
 import useTitle from "./hooks/useTitle";
 
 function App() {
+  // useInput
   const maxLen = (value) => !value.includes("@");
   const name = useInput("Mr.", maxLen);
+
+  // useTab
   const content = [
     {
       tab: "Section 1",
@@ -26,17 +29,31 @@ function App() {
     },
   ];
   const { currentItem, changeItem } = useTabs(0, content);
+
+  // useTitle
   const titleUpdater = useTitle("Loading...");
   setTimeout(() => titleUpdater("Home"), 500);
+
+  // useClick
   const clickedElement = useClick(() => console.log("Clicked"));
   const deleteWorld = () => console.log("Deleting the world");
   const abort = () => console.log("Aborted");
+
+  // useConfirm
   const confirmDelete = useConfirm("Are you sure?", deleteWorld, abort);
+
+  // usePreventLeave
   const { enablePrevent, disablePrevent } = usePreventLeave();
+
+  // usePageLeave
   const begForLifr = () => console.log("Pls dont leave");
   usePageLeave(begForLifr);
+
+  // useFadeIn
   const fadeInHi = useFadeIn({ duration: 2, delay: 3 });
   const fadeInBye = useFadeIn({ duration: 3, delay: 5 });
+
+  // useNetwork
   const handleNetworkChange = (online) => {
     console.log(online ? "We just went online" : "We are offline");
   };
@@ -61,42 +78,49 @@ function App() {
 
   return (
     <>
+      {/* useInput */}
       <div>
         <input placeholder="Name" {...name} />
       </div>
+      {/* useTab */}
       <div>
         {content.map((section, index) => (
           <button onClick={() => changeItem(index)}>{section.tab}</button>
         ))}
         <div>{currentItem.content}</div>
       </div>
-      <div>
-        <div>Hi</div>
-      </div>
+      {/* useClick */}
       <div ref={clickedElement}>Click</div>
+      {/* useConfirm */}
       <div>
         <button onClick={confirmDelete}>Delete the world</button>
       </div>
+      {/* usePreventLeave */}
       <div>
         <button onClick={enablePrevent}>Protect</button>
         <button onClick={disablePrevent}>Unprotect</button>
       </div>
+      {/* useFadeIn */}
       <div {...fadeInHi}>hi</div>
       <div {...fadeInBye}>bye</div>
+      {/* useNetwork */}
       <div>{onLine ? "Online" : "Offline"}</div>
+      {/* useScroll */}
       <div style={{ height: "1000vh" }}>
         <h1 style={{ position: "fixed", color: y > 100 ? "red" : "blue" }}>
           Hi
         </h1>
       </div>
+      {/* useFullScreen */}
       <div ref={element}>
         <img
           src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.thesun.co.uk%2Fwp-content%2Fuploads%2F2022%2F06%2Fsp-jonsnow-op.jpg%3Fstrip%3Dall%26quality%3D100%26w%3D1920%26h%3D1080%26crop%3D1&type=sc960_832"
-          alt="psyduck"
+          alt="John Snow"
         />
         <button onClick={triggerFull}>Make fullscreen</button>
         <button onClick={exitFull}>Exit fullscreen</button>
       </div>
+      {/* useNotification */}
       <div>
         <button onClick={triggerNotif}>Notification</button>
       </div>
